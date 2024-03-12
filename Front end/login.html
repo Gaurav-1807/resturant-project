@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>RegistrationForm_v1 by Colorlib</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper" style="background-image: url('images/recipe-single.jpg');">
+		<div class="inner">
+			<div class="image-holder">
+				<img src="images/side-bg.jpg" alt="">
+			</div>
+			<form id="loginform">
+				<h3>Login Form</h3>
+
+
+				<div class="form-wrapper">
+					<input type="text" placeholder="Email Address" name="email" class="form-control" id="email">
+					<i class="zmdi zmdi-email"></i>
+				</div>
+
+
+				<div class="form-wrapper">
+					<input type="password" placeholder="Password" name="password" class="form-control"	id="password">
+					<i class="zmdi zmdi-lock"></i>
+				</div>
+
+				<input type="submit" class="button" value="submit" style="z-index: 9999;">
+
+				<h3 style="margin-top: 30px;">Order the Food and enjoy the food ..!</h3>
+				<img src="images/reg-2.png" class="png-bg" alt="">
+			</form>
+		</div>
+	</div>
+
+</body>
+<script>
+
+	const login = async (e) => {
+		e.preventDefault();
+		const email = document.getElementById('email').value
+		const password = document.getElementById('password').value
+
+		fetch('http://localhost:8090/user/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ email, password }),
+		})
+			.then((response) => response.json())
+			.then((data) => document.cookie = `id = ${data._id}`, {
+			})
+			.catch((error) => console.error(error));
+	}
+	document.getElementById("loginform").addEventListener("submit", login);
+
+</script>
+
+</html>

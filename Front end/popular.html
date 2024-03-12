@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANVAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="CSS/fontawesome.css">
+    <link rel="stylesheet" href="CSS/font-1.css">
+    <style>
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1140px !important;
+            }
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue': '#267DF4'
+                    }
+                },
+
+
+                fontFamily: {
+                    sans: 'Noto Serif'
+
+                },
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- header section  -->
+    <header class=" sticky top-0 z-50 ">
+       <div class="w-full absolute">
+        <div class=" mx-auto ">
+            <div class="flex justify-between items-center flex-wrap">
+                <div class="logo  md:ms-28">
+                   <a href="#"> <img src="images/logo (1).png" alt=""></a>
+                </div>
+                <nav
+                    class="  py-4  shadow-[0_0.5rem_1.5rem_rgba(0,0,0,0.1)] rounded-l-md absolute  lg:static w-full bg-white   md:w-auto start-0 top-[100px] transition-all duration-500 scale-y-0 md:scale-y-100">
+                    <ul class="flex md:space-x-10 md:mr-[150px] space-x-4 font-sans text-[18px] flex-col md:flex-row space-y-4 md:space-y-0 md:ml-[150px]   ">
+                        <li class="ml-4">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="ml-12">
+                            <a href="about.html">About Us</a>
+                        </li>
+                        <li class="ml-12 relative group ">
+                            <a href="#" class="">Recipes <i class="fa-solid fa-chevron-down ml-2"></i></a>
+                            <ol class="absolute bg-white left-[-30px]  top-[30px] group-hover:top-[43px] w-[200px] z-[99] invisible	  group-hover:visible	duration-300 ">
+                                <li class="py-2 px-4 hover:bg-slate-100 hover:text-blue "><a href="racipe1.html">Recipe Single page</a></li>
+                                <li class="py-2 px-4 hover:bg-slate-100 hover:text-blue "><a href="popular.html">Popular</a></li>
+                              
+                            </ol>
+                        </li>
+                        <li class="ml-12">
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="ml-16">
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="toggle text-3xl mr-[20px] md:hidden ">
+                    <i class="fa-solid fa-bars"></i>
+                  </div>
+            </div>
+        </div>
+       </div>
+    </header>
+   <!-- baner section  -->
+   <section class="bg-[url(images/recipes-bg.jpg)] ">
+    <div class="bg-black/[0.10] h-full">
+      <div class="container mx-auto">
+          <div class="py-40 ">
+             <div>
+              <h1 class="text-[45px] text-white font-bold">Recipes </h1>
+              <p class="text-[20px] my-10 text-white/75">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga debitis deleniti dolores <br> cupiditate quia  reiciendis, obcaecati facere. Amet et enim itaque sapiente. Culpa, incidunt, <br>eveniet.</p>
+              <a href="#" class="bg-blue py-4  px-10 ml-[-10px] hover:bg-black hover:text-white duration-300 rounded-full text-white">View All Recipes</a>
+             </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- welcome section  -->
+ <section class="py-24 mx-auto">
+    <div class="xl:container mx-auto">
+        <div class="text-center ">
+            <h3 class="text-[42px]">HELLO & WELCOME.</h3>
+            <p class="text-[18px] opacity-75 my-8 w-[55.66%] mx-auto">I'm John Doe, Authoritatively communicate
+                world-class alignments before low-risk high-yield growth strategies. Synergistically envisioneer
+                transparent niches after dynamic "outside the box" thinking. Uniquely partnerships before
+                synergistic niche markets.</p>
+            <p class="text-[18px] opacity-75">Cheers to all that you do!</p>
+            <img src="images/sign.png" alt="" class="w-[10%] mx-auto my-8">
+            <h2 class="text-[26px] mb-20">Browse by Category</h2>
+        </div>
+
+        <div class="mx-auto">
+            <div class="flex flex-wrap items-center justify-center gap-3 ">
+                <div>
+                    <div
+                        class="bg-[url(images/about-1.jpg)] group hover:w-[300px] w-[80px] h-[300px] overflow-hidden relative rounded-[50px] hover:rounded-md transition-all duration-500 bg-center">
+                        <div class="bg-black/50 h-full">
+                            <div class="p-4  left-0 top-auto flex flex-col  items-center justify-end h-full">
+                                <p
+                                    class="-rotate-90  mb-24 mr-8 ml-0 text-white group-hover:rotate-0 origin-top duration-500 group-hover:mb-2 font-semibold	text-xl">
+                                    BREAKFAST</p>
+                                <div
+                                    class="w-[50px] h-[50px] bg-white absolute bottom-[15px] left-[15px] rounded-full text-center justify-center  flex">
+                                    <img src="images/bf.svg" alt class="w-[100%] p-2 group-hover:rotate-[360deg]">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="bg-[url(images/about-2.jpg)] group hover:w-[300px] overflow-hidden w-[80px] h-[300px] relative rounded-[50px] hover:rounded-md transition-all duration-500 bg-center">
+                        <div class="bg-black/25 h-full ">
+                            <div class="p-4  left-0 top-auto flex flex-col  items-center justify-end h-full">
+                                <p
+                                    class="-rotate-90  mb-[75px] mr-8 ml-0 text-white group-hover:rotate-0 origin-top duration-500 group-hover:mb-2 font-semibold	text-xl">
+                                    LUNCH</p>
+                                <div
+                                    class="w-[50px] h-[50px] bg-white absolute bottom-[15px] left-[15px] rounded-full text-center justify-center  flex">
+                                    <img src="images/bf.svg" alt class="w-[100%] p-2 group-hover:rotate-[360deg]">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="bg-[url(images/about-3.jpg)] overflow-hidden group bg-cover hover:w-[300px] w-[80px] h-[300px] relative rounded-[50px] hover:rounded-md transition-all duration-500 bg-center">
+                        <div class="bg-black/25 h-full">
+                            <div class="p-4  left-0 top-auto flex flex-col  items-center justify-end h-full">
+                                <p
+                                    class="-rotate-90  mb-[75px] mr-8 ml-0 text-white group-hover:rotate-0 origin-top duration-500 group-hover:mb-2 font-semibold	text-xl">
+                                    DINNER</p>
+                                <div
+                                    class="w-[50px] h-[50px] bg-white absolute bottom-[15px] left-[15px] rounded-full text-center justify-center  flex">
+                                    <img src="images/bf.svg" alt class="w-[100%] p-2 group-hover:rotate-[360deg]">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="bg-[url(images/about-4.jpg)] overflow-hidden group hover:w-[300px] w-[80px] h-[300px] relative rounded-[50px] hover:rounded-md transition-all duration-500 bg-center">
+                        <div class="bg-black/25 h-full">
+                            <div class="p-4  left-0 top-auto flex flex-col  items-center justify-end h-full">
+                                <p
+                                    class="-rotate-90  mb-[85px] mr-8 ml-0 text-white group-hover:rotate-0 origin-top duration-500 group-hover:mb-2 font-semibold	text-xl">
+                                    DESSERTS</p>
+                                <div
+                                    class="w-[50px] h-[50px] bg-white absolute bottom-[15px] left-[15px] rounded-full text-center justify-center  flex">
+                                    <img src="images/bf.svg" alt class="w-[100%] p-2 group-hover:rotate-[360deg]">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="bg-[url(images/about-5.jpg)] overflow-hidden group hover:w-[300px] w-[80px] h-[300px] relative rounded-[50px] hover:rounded-md transition-all duration-500 bg-center">
+                        <div class="bg-black/25 h-full">
+                            <div class="p-4  left-0 top-auto flex flex-col  items-center justify-end h-full">
+                                <p
+                                    class="-rotate-90  mb-[75px] mr-8 ml-0 text-white group-hover:rotate-0 origin-top duration-500 group-hover:mb-2 font-semibold	text-xl">
+                                    VEGAN</p>
+                                <div
+                                    class="w-[50px] h-[50px] bg-white absolute bottom-[15px] left-[15px] rounded-full text-center justify-center  flex">
+                                    <img src="images/bf.svg" alt class="w-[100%] p-2 group-hover:rotate-[360deg]">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="bg-[url(images/about-6.jpg)] overflow-hidden group hover:w-[300px] w-[80px] h-[300px] relative rounded-[50px] hover:rounded-md transition-all duration-500 bg-center">
+                        <div class="bg-black/25 h-full">
+                            <div class="p-4  left-0 top-auto flex flex-col  items-center justify-end h-full">
+                                <p
+                                    class="-rotate-90  mb-[85px] mr-8 ml-0 text-white group-hover:rotate-0 origin-top duration-500 group-hover:mb-2 font-semibold	text-xl">
+                                    SEAFOOD</p>
+                                <div
+                                    class="w-[50px] h-[50px] bg-white absolute bottom-[15px] left-[15px] rounded-full text-center justify-center  flex">
+                                    <img src="images/bf.svg" alt class="w-[100%] p-2 group-hover:rotate-[360deg]">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="bg-[url(images/about-7.jpg)] overflow-hidden group hover:w-[300px] w-[80px] h-[300px] relative rounded-[50px] hover:rounded-md transition-all duration-500 bg-center">
+                        <div class="h-full bg-black/25">
+                            <div class="p-4  left-0 top-auto flex flex-col  items-center justify-end h-full">
+                                <p
+                                    class="-rotate-90  mb-24 mr-8 ml-0 text-white group-hover:rotate-0 origin-top duration-500 group-hover:mb-2 font-semibold	text-xl">
+                                    BEVERAGES</p>
+                                <div
+                                    class="w-[50px] h-[50px] bg-white absolute bottom-[15px] left-[15px] rounded-full text-center justify-center  flex">
+                                    <img src="images/bf.svg" alt class="w-[100%] p-2 group-hover:rotate-[360deg]">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>   
+
+    <!-- Latest Recipes  section  -->
+    <section>
+        <div class="flex flex-wrap ">
+            <div class="md:w-8/12 ">
+                <div>
+                    <div class="flex flex-wrap justify-center">
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/racipi-1.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/2.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/3.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/4.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/5.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/6.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/7.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/8.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group">
+                                <div class="p-8 ">
+                                    <img src="images/9.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group pb-8">
+                                <div class="p-8 ">
+                                    <img src="images/10.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group pb-8">
+                                <div class="p-8 ">
+                                    <img src="images/11.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-4/12 md:w-6/12">
+                            <div class="racipi group pb-8">
+                                <div class="p-8 ">
+                                    <img src="images/12.png" alt=""
+                                        class="group-hover:animate-[spin_10s_linear_infinite] ">
+                                </div>
+                                <div class="mx-10">
+                                    <div class="flex justify-between items-center ">
+                                        <h2 class="text-md opacity-50">By <span class="font-bold"> GUNTHER BEARD</span>
+                                        </h2>
+                                        <div class="text-white bg-blue px-2 text-md rounded-md"><i
+                                                class="fa-solid fa-star"></i> 4.6</div>
+                                    </div>
+                                    <h3 class="text-xl my-4">Green Goddess Avocado Hummus</h3>
+                                    <div class="opacity-75"><i class="fa-regular fa-calendar-check"></i> <span
+                                            class="ml-2"> Dec 26 ,2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-4/12 ">
+                <div class="    h-screen bg-cover sticky top-0 justify-center  text-center items-center  h-full flex flex-col " style=" background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url('images/side-bg.jpg') center center / cover;">
+                    <div class="  items-center   z-50 flex-col">
+                       <div class="z-50" style="z-index: 999 ;"> <h2 class="text-white text-6xl  " >Latest <br>
+                        Recipes</h2></div>
+                        <div class="mt-10">
+                            <a href="racipe1.html"
+                            class="px-10 py-4 bg-blue rounded-3xl  font-bold text-white hover:bg-black duration-300">View
+                            Racipe <i class="fa-solid fa-chevron-right ml-2"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+   
+    <!-- stay updated section  -->
+    <section class="py-24 bg-[url(images/subscribe-bg.jpg)] bg-cover">
+        <div class="container mx-auto">
+            <img src="images/email.svg" alt="" class="w-[7%]">
+            <h2 class="text-4xl font-bold mt-8">Stay Updated!</h2>
+            <h2 class="text-2xl mt-4 text-slate-600">Easy Recipes and Cookings right to your Inbox</h2>
+            <input type="text" class= "outline-0 focus:outline-0 border-2 placeholder:text-black px-4 py-4 w-[50%] mt-8"
+                placeholder="Enter Your Email Address..">
+            <a href="#" class="bg-blue py-4  px-10 ml-[-10px] rounded-r-lg text-white">Subcribe</a>
+        </div>
+
+    </section>
+
+    
+
+     <!-- comment section  -->
+     <section class="bg-[url(images/2.jpg)]  bg-center bg-cover">
+        <div class="bg-black/75 h-full">
+            <div class="py-28 text-center">
+                <h1 class="text-[45px] text-white text-center">To Get The Best Results, You Must <br> Talk To Your Vegetables.</h1>
+                <h1 class="text-white/50 relative after:absolute my-8 after:h-[1px] after:w-[15px] after:left-[43%] after:top-[50%]   after:bg-white/50">Charles, Prince of Wales</h1>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- footer section  -->
+    <footer class="">
+      <div class="py-20">
+        <div class="container mx-auto">
+            <div class="flex flex-wrap justify-center">
+                <div class="lg:w-2/12 md:w-3/12 w-full">
+                    <div class="">
+                            <h2 class="text-2xl">Download App</h2>
+                            <div class="mt-10 mb-4">
+                                <img src="images/appstore.png" alt="">
+                            </div>
+                            <div >
+                                <img src="images/googleplay.png" alt="">
+                            </div>
+                    </div>
+                </div>
+                <div class="lg:w-2/12 md:w-3/12 w-full">
+                    <div class="pl-8 my-10 md:my-0 lg:my-0 ">
+                        <h2 class="text-2xl">Support</h2>
+                        <ul class="mt-8 text-slate-500">
+                            <li><a href="index.html" class="">Home</a></li>
+                            <li class="my-4"><a href="about.html" class="">About</a></li>
+                            <li class="my-4"><a href="#" class="">FAQs</a></li>
+                            <li><a href="contact.html" class="">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:w-2/12 md:w-3/12 w-full">
+                    <div class="pl-8 my-10 md:my-0 lg:my-0">
+                        <h2 class="text-2xl">Trending</h2>
+                        <ul class="mt-8 text-slate-500">
+                            <li><a href="" class="">Shop</a></li>
+                            <li class="my-4"><a href="racipe1.html" class="">Portfolio</a></li>
+                            <li class="my-4"><a href="about.html" class="">Blog</a></li>
+                          
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:w-2/12 md:w-3/12 w-full">
+                    <div class="pl-8 my-10 md:my-0 lg:my-0">
+                        <h2 class="text-2xl">Features</h2>
+                        <ul class="mt-8 text-slate-500">
+                            <li><a href="#" class="">Help Center</a></li>
+                            <li class="my-4"><a href="#" class="">Paid with Moblie</a></li>
+                            <li class="my-4"><a href="#" class="">Status</a></li>
+                            <li><a href="contact.html" class="">Contact Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:w-4/12 md:w-3/12 w-full">
+                   <div class="ml-4">
+                    <h2 class="text-2xl mb-8 ">Instagram Photos</h2>
+                    <div class="flex flex-wrap">
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29401198_2041410189471773_6315848566677962752_n.jpg" alt="">
+                            </div>
+                        </div >
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29401443_391780411297168_6177764775406075904_n.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29402451_429139237508825_1463019234299740160_n.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29414625_1209444259158792_9161404639550111744_n.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29415091_733491353705817_2228369551609823232_n.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29415705_1631149850253944_8004463019784404992_n.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29417843_563424207355396_1055402000113467392_n.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="w-[80px] h-[80px]">
+                            <div class="p-[2px]">
+                                <img src="images/29738164_429456984142491_999057840280698880_n.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+      </div>
+        <div class="py-8 bg-slate-100/50">
+            <div class="container mx-auto">
+                <div class="flex flex-wrap justify-between items-center">
+                    <h2 class="opacity-50">Copyrights © 2023 All Rights Reserved by Canvas Inc.</h2>
+                    <div class="flex flex-wrap">
+                        <div class="w-[30px] hover:-translate-y-1 duration-500 h-[30px] rounded-md bg-indigo-800 leading-[30px] text-center 	" >
+                            <a href="#" class="text-[14px] text-white "><i class="fa-brands fa-facebook-f "></i></a>
+                        </div>
+                        <div class="w-[30px] h-[30px] hover:-translate-y-1 duration-500 rounded-md bg-sky-500 leading-[30px] text-center ms-2	" >
+                            <a href="#" class="text-[14px] text-white"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                        <div class="w-[30px] h-[30px] hover:-translate-y-1 duration-500 rounded-md bg-red-700 leading-[30px] text-center ms-2	" >
+                            <a href="#" class="text-[14px] text-white"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                        <div class="w-[30px] h-[30px] hover:-translate-y-1 duration-500 rounded-md bg-purple-700 leading-[30px] text-center ms-2	" >
+                            <a href="#" class="text-[14px] text-white"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+
+                    </div>
+                    <h2 class="opacity-50 flex"><a href="#" class="underline decoration-1 me-2">Terms of Use</a> /
+                        <a href="#" class="underline decoration-1 ms-2">Privacy Policy</a></h2>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+<!-- <script src="https://kit.fontawesome.com/b9bf39324e.js" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+      $(".toggle").click(function () {
+        $("header nav").toggleClass("scale-y-100");
+      })
+    })
+  </script>
+
+</html>
