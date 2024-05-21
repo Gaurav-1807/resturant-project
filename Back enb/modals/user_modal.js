@@ -17,6 +17,11 @@ const userschema = new mongoose.Schema({
     password: String
 });
 
-const users = mongoose.model('users', userschema)
+const SubcribeSchema = new mongoose.Schema({
+    email : String,
+})
 
-module.exports = users
+const users = mongoose.model('users', userschema)
+const subcribers = mongoose.model('subcribers', SubcribeSchema)
+
+module.exports = {users , subcribers}

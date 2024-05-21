@@ -2,114 +2,155 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<title>RegistrationForm_v1 by Colorlib</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>RegistrationForm_v1 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- MATERIAL DESIGN ICONIC FONT -->
-	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
-	<!-- STYLE CSS -->
-	<link rel="stylesheet" href="css/style.css">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-	<div class="wrapper" style="background-image: url('images/recipe-single.jpg');">
-		<div class="inner">
-			<div class="image-holder">
-				<img src="images/side-bg.jpg" alt="">
-			</div>
-			<form id="signup-page">
-				<h3>Signup Form</h3>
+    <div class="wrapper" style="background-image: url('images/recipe-single.jpg');">
+        <div class="inner">
+            <div class="image-holder">
+                <img src="images/side-bg.jpg" alt="">
+            </div>
+            <form id="signup-page">
+                <h3>Signup Form</h3>
 
-				<div class="form-wrapper">
-					<input type="text" placeholder="Username" name="username" id="signup_username" class="form-control">
-					<i class="zmdi zmdi-account"></i>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Username" name="username" id="signup_username" class="form-control">
+                    <i class="zmdi zmdi-account"></i>
 
-				</div>
+                </div>
 
-				<div class="form-wrapper">
-					<input type="text" placeholder="Email Address" name="email" id="signup_email" class="form-control">
-					<i class="zmdi zmdi-email"></i>
-				</div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Email Address" name="email" id="signup_email" class="form-control">
+                    <i class="zmdi zmdi-email"></i>
+                </div>
 
-				<div class="form-wrapper">
-					<select name="gender" id="signup_gender" class="form-control">
-						<option value="" disabled selected>Gender</option>
-						<option value="male">Male</option>
-						<option value="female">Female</option>
-						<option value="other">Other</option>
-					</select>
-					<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-				</div>
-				<div class="form-wrapper">
-					<select name="role" id="signup_role" class="form-control">
-						<option value="" disabled selected>Role</option>
-						<option value="admin">admin</option>
-						<option value="user">user</option>
+                <div class="form-wrapper">
+                    <select name="gender" id="signup_gender" class="form-control">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+                </div>
+                <div class="form-wrapper">
+                    <select name="role" id="signup_role" class="form-control">
+                        <option value="" disabled selected>Role</option>
+                        <option value="admin">admin</option>
+                        <option value="user">user</option>
+                    </select>
+                    <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Password" name="password" id="signup_password" class="form-control">
+                  
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+                <a href="login.html" style="color: black;">Already Register?</a>
 
-					</select>
-					<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-				</div>
-				<div class="form-wrapper">
-					<input type="password" placeholder="Password" name="password" id="signup_password"
-						class="form-control">
-					<i class="zmdi zmdi-lock"></i>
-				</div>
+                <input class="button" type="submit" value="Register" style="z-index: 9999;">
 
-				<input class="button" type="submit" value="Register" style="z-index: 9999;">
+                <h3 style="margin-top: 50px; color: sienna;">Enjoy your Test ..!</h3>
 
-				<h3 style="margin-top: 50px; color: sienna;">Enjoy your Test ..!</h3>
+            </form>
+        </div>
+    </div>
 
-			</form>
-		</div>
-	</div>
+    <script>
+    const signup = async (e) => {
+        e.preventDefault();
+
+        let obj = {
+            username: document.getElementById('signup_username').value,
+            email: document.getElementById("signup_email").value,
+            role: document.getElementById("signup_role").value,
+            gender: document.getElementById("signup_gender").value,
+            password: document.getElementById('signup_password').value
+        }
+
+        try {
+            const response = await fetch('http://localhost:8090/user/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Signup successful. Received data:", data);
+                // Set cookie with appropriate attributes
+                document.cookie = `id=${data._id}; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/`;
+                console.log("Cookie set:", document.cookie, data._id);
+                // Redirect user to login page or any other desired page
+                alert('Signup successful');
+                window.location.href = "login.html";
+            } else if (response.status === 409) {
+                alert("Email is already registered. Please use a different email.");
+            } else {
+                console.error('Signup failed');
+                alert("Signup failed. Please try again.");
+            }
+        } catch (error) {
+            console.error('Error during signup:', error);
+            alert("Signup failed. Please try again.");
+        }
+    }
+
+    document.getElementById('signup-page').addEventListener('submit', signup);
+
+
+        document.getElementById("signup_email").addEventListener("input", () => {
+            let email = document.getElementById("signup_email").value
+            let e_pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+            if (!e_pattern.test(email)) {
+                document.getElementById("signup_email").style.borderColor = '#FF0000'
+
+            } else {
+                document.getElementById("signup_email").style.borderColor = '#008000'
+
+            }
+        })
+        document.getElementById("signup_username").addEventListener("input", () => {
+            let email = document.getElementById("signup_username").value
+            let n_pattern = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
+
+            if (!n_pattern.test(email)) {
+                document.getElementById("signup_username").style.borderColor = '#FF0000'
+
+            } else {
+                document.getElementById("signup_username").style.borderColor = '#008000'
+
+            }
+        })
+        document.getElementById("signup_password").addEventListener("input", () => {
+            let email = document.getElementById("signup_password").value
+            let n_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+;
+
+            if (!n_pattern.test(email)) {
+                document.getElementById("signup_password").style.borderColor = '#FF0000'
+
+            } else {
+                document.getElementById("signup_password").style.borderColor = '#008000'
+
+            }
+        })
+        document.getElementById('signup-page').addEventListener("submit", signup);
+    </script>
 
 </body>
-
-<script>
-
-	const signup = async (e) => {
-		e.preventDefault();
-
-
-
-		let obj = {
-			username: document.getElementById('signup_username').value,
-			email: document.getElementById("signup_email").value,
-			role: document.getElementById("signup_role").value,
-			gender: document.getElementById("signup_gender").value,
-			password: document.getElementById('signup_password').value
-		}
-
-		fetch('http://localhost:8090/user/signup', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(obj),
-		})
-			.then((res) => res.json())
-			.then((data) => document.cookie = `id = ${data._id}`)
-			.catch((error) => console.error(error))
-		// window.location.href = "login.html"
-	}
-
-	document.getElementById("signup_email").addEventListener("keypress", () => {
-		let email = document.getElementById("email").value
-		let e_pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-
-		if (!e_pattern.test(email)) {
-			document.getElementById("signup_email").style.borderColor = '#FF0000'
-
-		}
-		else {
-			document.getElementById("signup_email").style.borderColor = '#008000'
-
-		}
-	})
-	document.getElementById('signup-page').addEventListener("submit", signup);
-</script>
 
 </html>
